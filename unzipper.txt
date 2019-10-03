@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+
+# Unzips to the cwd all .zip files in cwd, then deletes the .zip files.
+
+import os
+import zipfile
+
+for filename in os.listdir(os.getcwd()): 
+	if filename.endswith('.zip'):
+		with zipfile.ZipFile(filename, 'r') as zipref:
+			zipref.extractall()
+		os.remove(filename)
+	else: 
+		pass
