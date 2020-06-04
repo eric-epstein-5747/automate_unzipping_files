@@ -8,7 +8,11 @@ import zipfile
 for filename in os.listdir(os.getcwd()): 
 	if filename.endswith('.zip'):
 		with zipfile.ZipFile(filename, 'r') as zipref:
-			zipref.extractall()
-		os.remove(filename)
+			# Delete path (below) if you want to unzip to cwd
+			zipref.extractall(path=filename[:-4])
+		
+		# Option to delete file
+		# os.remove(filename)
+	
 	else: 
 		pass
